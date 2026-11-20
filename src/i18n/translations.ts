@@ -12,7 +12,7 @@ export const translations = {
     "nav.cta": "Falar com Especialista",
 
     // Hero
-    "hero.badge": "Consultoria & Engenharia de Software · Taubaté/SP & Global",
+    "hero.badge": "Consultoria & Engenharia de Software · Taubaté-SP & Global",
     "hero.title": "Engenharia de Software, Plataformas SaaS & Integrações de Sistemas.",
     "hero.subtitle": "Projetamos produtos digitais de alta confiabilidade, sistemas corporativos escaláveis e integrações robustas entre APIs corporativas, Cloud e Inteligência Artificial.",
     "hero.ctaPrimary": "Solicitar Diagnóstico Técnico",
@@ -126,7 +126,7 @@ export const translations = {
 
     // About Page
     "about.title": "A Engenharia de Software Feita para Durar.",
-    "about.badge": "Taubaté/SP · Vale do Paraíba & Global",
+    "about.badge": "Taubaté-SP & Global",
     "about.subtitle": "Nascemos para preencher uma lacuna crônica de mercado: empresas que precisam de tecnologia séria, mas não querem lidar com burocracias impessoais nem com ferramentas frágeis e amadoras.",
     "about.propTitle": "Engenharia com Proximidade: Rigor Técnico e Atendimento Executivo",
     "about.propP1": "A G. Morais Marcondes Soluções em Tecnologia da Informação LTDA atua como uma consultoria especializada em engenharia de software e desenvolvimento de soluções digitais. Isso significa que não temos dezenas de intermediários, gerentes de conta que não entendem de código ou suporte terceirizado em outro estado.",
@@ -357,7 +357,7 @@ export const translations = {
 
     // About Page
     "about.title": "Software Engineering Built to Endure.",
-    "about.badge": "Taubaté/SP · Global Delivery",
+    "about.badge": "Taubaté-SP & Global",
     "about.subtitle": "We were founded to solve a chronic market issue: organizations that require rigorous, enterprise-grade engineering, without bureaucratic overhead or fragile amateur codebases.",
     "about.propTitle": "High-Touch Engineering: Mathematical Rigor & Executive Focus",
     "about.propP1": "G. Morais Marcondes IT Solutions operates as a specialized software engineering boutique. This means zero unnecessary intermediaries, no non-technical middle managers, and no outsourced tier-1 support.",
