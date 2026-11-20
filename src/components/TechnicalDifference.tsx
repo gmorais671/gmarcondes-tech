@@ -44,7 +44,8 @@ export function TechnicalDifference() {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* VISUALIZAÇÃO EM TABELA: Apenas para Desktop / Tablet (md em diante) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
               <tr className="border-b border-[var(--border-subtle)]">
@@ -81,6 +82,45 @@ export function TechnicalDifference() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* VISUALIZAÇÃO EM CARDS: Adaptada 100% para Telas Mobile (evita scroll horizontal) */}
+        <div className="md:hidden space-y-5">
+          {points.map((p, i) => (
+            <div
+              key={i}
+              className="p-5 rounded-2xl bg-[#0b1629] border border-[var(--border-subtle)] space-y-4 shadow-sm"
+            >
+              <div className="border-b border-[var(--border-subtle)] pb-2.5">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--accent)] block mb-1">
+                  {t("techDiff.colCriteria")} 0{i + 1}
+                </span>
+                <strong className="block text-base font-bold text-[var(--text-primary)]">
+                  {p.feature}
+                </strong>
+              </div>
+
+              {/* Modelo Tradicional */}
+              <div className="p-3.5 rounded-xl bg-[#0F1E36] border border-red-500/20 text-xs">
+                <span className="flex items-center gap-1.5 text-red-400 font-semibold uppercase tracking-wider text-[10px] mb-1">
+                  <X size={13} />
+                  <span>{t("techDiff.colTraditional")}</span>
+                </span>
+                <p className="text-[var(--text-muted)] leading-relaxed">{p.agencies}</p>
+              </div>
+
+              {/* G. Marcondes */}
+              <div className="p-3.5 rounded-xl bg-[#14243f] border border-[var(--accent)]/40 text-xs">
+                <span className="flex items-center gap-1.5 text-[var(--accent)] font-semibold uppercase tracking-wider text-[10px] mb-1">
+                  <Check size={13} />
+                  <span>{t("techDiff.colGMarcondes")}</span>
+                </span>
+                <p className="text-[var(--accent-soft)] font-medium leading-relaxed">
+                  {p.gmarcondes}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
