@@ -1,26 +1,31 @@
+"use client";
+
 import { Check, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function TechnicalDifference() {
+  const { t } = useLanguage();
+
   const points = [
     {
-      feature: "Conexão e Segurança no WhatsApp",
-      agencies: "Automações não oficiais que expõem o número corporativo a riscos de bloqueio",
-      gmarcondes: "API Oficial da Meta (Cloud API) com número e DDD local 100% seguros",
+      feature: t("techDiff.row1Feature"),
+      agencies: t("techDiff.row1Agencies"),
+      gmarcondes: t("techDiff.row1GMarcondes"),
     },
     {
-      feature: "Infraestrutura e Dados",
-      agencies: "Ambientes compartilhados com limitações para grandes volumes",
-      gmarcondes: "Servidores dedicados com Docker, isolamento lógico e conformidade com a LGPD",
+      feature: t("techDiff.row2Feature"),
+      agencies: t("techDiff.row2Agencies"),
+      gmarcondes: t("techDiff.row2GMarcondes"),
     },
     {
-      feature: "Atendimento & Acompanhamento",
-      agencies: "Suporte intermediado por atendentes sem domínio do código",
-      gmarcondes: "Contato direto com o engenheiro responsável pela concepção e implantação",
+      feature: t("techDiff.row3Feature"),
+      agencies: t("techDiff.row3Agencies"),
+      gmarcondes: t("techDiff.row3GMarcondes"),
     },
     {
-      feature: "Evolução e Integração",
-      agencies: "Dificuldade para conectar com ERPs próprios e regras de negócio avançadas",
-      gmarcondes: "Código sob medida, modular e preparado para integrações e novas fases de crescimento",
+      feature: t("techDiff.row4Feature"),
+      agencies: t("techDiff.row4Agencies"),
+      gmarcondes: t("techDiff.row4GMarcondes"),
     },
   ];
 
@@ -29,13 +34,13 @@ export function TechnicalDifference() {
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-xs uppercase font-mono tracking-widest text-[var(--accent)] font-semibold mb-3">
-            Diferencial Técnico
+            {t("techDiff.badge")}
           </p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5">
-            Por que Desenvolver com a G. Marcondes?
+            {t("techDiff.title")}
           </h2>
           <p className="text-[var(--text-secondary)] text-base md:text-lg">
-            A diferença prática de contar com uma infraestrutura projetada para estabilidade, segurança e longevidade operacional.
+            {t("techDiff.subtitle")}
           </p>
         </div>
 
@@ -44,13 +49,13 @@ export function TechnicalDifference() {
             <thead>
               <tr className="border-b border-[var(--border-subtle)]">
                 <th className="py-5 px-6 text-sm font-semibold text-[var(--text-muted)] w-1/3">
-                  Critério de Decisão
+                  {t("techDiff.colCriteria")}
                 </th>
                 <th className="py-5 px-6 text-sm font-medium text-[var(--text-muted)] w-1/3">
-                  Modelos Tradicionais de Mercado
+                  {t("techDiff.colTraditional")}
                 </th>
                 <th className="py-5 px-6 text-sm font-bold text-[var(--accent)] w-1/3 bg-[#14243f]/40 rounded-t-xl">
-                  G. Marcondes | Soluções em TI
+                  {t("techDiff.colGMarcondes")}
                 </th>
               </tr>
             </thead>

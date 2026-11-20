@@ -1,6 +1,11 @@
+"use client";
+
 import { ExternalLink, GraduationCap, Award, Code2 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Leadership() {
+  const { t } = useLanguage();
+
   return (
     <section id="engenharia" className="py-24 border-t border-[var(--border-subtle)] bg-[#0b1629]/40">
       <div className="container-custom">
@@ -9,24 +14,20 @@ export function Leadership() {
             <div className="lg:col-span-8">
               <div className="badge-boutique mb-4">
                 <Award size={14} />
-                <span>Liderança Técnica &amp; Fundador</span>
+                <span>{t("leadership.badge")}</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Gabriel Morais Marcondes
+                {t("leadership.name")}
               </h2>
 
               <p className="text-[var(--accent)] font-medium text-sm md:text-base mb-6 font-mono">
-                Engenheiro de Controle e Automação (UNIFEI) · Engenheiro de Software
+                {t("leadership.role")}
               </p>
 
               <div className="text-[var(--text-secondary)] text-sm md:text-base space-y-4 mb-8 leading-relaxed max-w-3xl">
-                <p>
-                  Com sólida formação pela <strong>Universidade Federal de Itajubá (UNIFEI)</strong> e anos de experiência entregando softwares em produção de alta criticidade, Gabriel lidera a arquitetura técnica de todos os projetos da G. Marcondes.
-                </p>
-                <p>
-                  Sua atuação combina engenharia mobile avançada (Flutter nativo, offline-first, WebSockets), plataformas web escaláveis em Next.js e infraestrutura corporativa (Docker, Python, Node.js e integrações oficiais de Inteligência Artificial).
-                </p>
+                <p>{t("leadership.p1")}</p>
+                <p>{t("leadership.p2")}</p>
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -36,7 +37,7 @@ export function Leadership() {
                   rel="noreferrer"
                   className="btn-primary text-xs uppercase tracking-wider"
                 >
-                  <span>Ver Portfólio Pessoal &amp; Estudos de Caso Técnicos</span>
+                  <span>{t("leadership.portfolioBtn")}</span>
                   <ExternalLink size={15} />
                 </a>
 
@@ -46,7 +47,7 @@ export function Leadership() {
                   rel="noreferrer"
                   className="btn-secondary text-xs uppercase tracking-wider"
                 >
-                  <span>Conectar no LinkedIn</span>
+                  <span>{t("leadership.linkedinBtn")}</span>
                 </a>
               </div>
             </div>
@@ -56,11 +57,11 @@ export function Leadership() {
                 <div className="flex items-center gap-3 text-[var(--accent)] mb-2">
                   <GraduationCap size={20} />
                   <strong className="text-sm font-semibold text-[var(--text-primary)]">
-                    Base em Engenharia
+                    {t("leadership.card1Title")}
                   </strong>
                 </div>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  Rigor matemático, modelagem de processos e arquitetura resiliente herdados da Engenharia de Automação UNIFEI.
+                  {t("leadership.card1Desc")}
                 </p>
               </div>
 
@@ -68,11 +69,11 @@ export function Leadership() {
                 <div className="flex items-center gap-3 text-[var(--accent)] mb-2">
                   <Code2 size={20} />
                   <strong className="text-sm font-semibold text-[var(--text-primary)]">
-                    Full-Cycle Ownership
+                    {t("leadership.card2Title")}
                   </strong>
                 </div>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  Acompanhamento de ponta a ponta: da especificação de requisitos ao monitoramento de servidores e bancos de dados em produção.
+                  {t("leadership.card2Desc")}
                 </p>
               </div>
             </div>

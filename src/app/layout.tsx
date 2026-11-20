@@ -1,27 +1,33 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gmarcondes.tech"),
-  title: "G. Marcondes | Soluções em TI · Engenharia de Software, SaaS & IA",
+  title: "G. Marcondes | IT Solutions · Enterprise Software Engineering, SaaS & Cloud",
   description:
-    "Consultoria e engenharia de software em Taubaté/SP. Plataforma SaaS BarberSpace, Agentes Inteligentes no WhatsApp com API oficial da Meta e desenvolvimento sob medida.",
+    "Consultoria e engenharia de software especializada. Plataformas SaaS, Enterprise Full-Stack (.NET, Angular, AWS), Agentes Inteligentes no WhatsApp com API oficial da Meta e desenvolvimento sob medida.",
   keywords: [
     "Engenharia de Software",
     "G. Marcondes",
+    "Senior Full Stack",
+    ".NET",
+    "C#",
+    "Angular",
+    "AWS",
+    "Next.js",
     "BarberSpace",
     "Agente de IA WhatsApp",
     "Meta Cloud API",
     "Taubaté",
     "Vale do Paraíba",
     "SaaS",
-    "Flutter",
-    "Next.js"
+    "Flutter"
   ],
   authors: [{ name: "Gabriel Morais Marcondes" }],
   openGraph: {
-    title: "G. Marcondes | Soluções em TI · Engenharia de Software & IA",
-    description: "Sistemas sob medida, SaaS BarberSpace e Agentes de IA dedicados no WhatsApp com API oficial da Meta.",
+    title: "G. Marcondes | IT Solutions · Enterprise Software Engineering & Cloud",
+    description: "Sistemas corporativos sob medida (.NET, Angular, AWS), SaaS BarberSpace e Agentes de IA dedicados no WhatsApp com API oficial da Meta.",
     images: [{ url: "/brand/logo.jpg" }],
   },
   icons: {
@@ -36,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

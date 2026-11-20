@@ -1,7 +1,12 @@
+"use client";
+
 import { ShieldCheck, Cpu, ArrowRight, Network } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
       {/* Luz ambiente de fundo */}
@@ -11,15 +16,15 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <div className="badge-boutique mb-8 animate-fade-in">
             <span className="dot-pulse" />
-            <span>Consultoria &amp; Engenharia de Software · Taubaté/SP</span>
+            <span>{t("hero.badge")}</span>
           </div>
 
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-[var(--text-primary)] max-w-5xl">
-            Engenharia de Software, Plataformas SaaS &amp; Integrações de Sistemas.
+            {t("hero.title")}
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mb-10 leading-relaxed font-normal">
-            Projetamos produtos digitais de alta confiabilidade, aplicativos sob medida e integrações robustas entre plataformas, APIs corporativas e Inteligência Artificial.
+            {t("hero.subtitle")}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
@@ -27,11 +32,11 @@ export function Hero() {
               href="/contato"
               className="btn-primary w-full sm:w-auto text-base"
             >
-              <span>Solicitar Diagnóstico Técnico</span>
+              <span>{t("hero.ctaPrimary")}</span>
               <ArrowRight size={18} />
             </Link>
             <Link href="#solucoes" className="btn-secondary w-full sm:w-auto text-base">
-              Conhecer Nossos Produtos &amp; Serviços
+              {t("hero.ctaSecondary")}
             </Link>
           </div>
 
@@ -43,10 +48,10 @@ export function Hero() {
               </div>
               <div>
                 <strong className="block text-sm font-semibold text-[var(--text-primary)]">
-                  Formação UNIFEI
+                  {t("hero.badge1Title")}
                 </strong>
                 <span className="text-xs text-[var(--text-muted)]">
-                  Engenharia de Controle &amp; Automação
+                  {t("hero.badge1Desc")}
                 </span>
               </div>
             </div>
@@ -57,10 +62,10 @@ export function Hero() {
               </div>
               <div>
                 <strong className="block text-sm font-semibold text-[var(--text-primary)]">
-                  Integrações de APIs
+                  {t("hero.badge2Title")}
                 </strong>
                 <span className="text-xs text-[var(--text-muted)]">
-                  Ponto+, ERPs, Bancos e Meta API
+                  {t("hero.badge2Desc")}
                 </span>
               </div>
             </div>
@@ -71,10 +76,10 @@ export function Hero() {
               </div>
               <div>
                 <strong className="block text-sm font-semibold text-[var(--text-primary)]">
-                  SaaS &amp; Infraestrutura
+                  {t("hero.badge3Title")}
                 </strong>
                 <span className="text-xs text-[var(--text-muted)]">
-                  Containers Docker, Cloud &amp; LGPD
+                  {t("hero.badge3Desc")}
                 </span>
               </div>
             </div>

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Award, GraduationCap, Code2, MapPin, ExternalLink, ArrowRight, ShieldCheck, HeartHandshake } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Sobre a Empresa | Consultoria & Engenharia de Software · G. Marcondes",
-  description: "Conheça a G. Marcondes Soluções em TI: sediada em Taubaté/SP, fundada por Gabriel Morais Marcondes (Engenheiro UNIFEI), entregando software de alto padrão e inteligência técnica para empresas.",
-};
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function SobrePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col bg-[#0F1E36] text-[#F4EFEA]">
       <Navbar />
@@ -21,15 +20,15 @@ export default function SobrePage() {
             <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
               <div className="badge-boutique mb-6">
                 <MapPin size={14} />
-                <span>Taubaté/SP · Vale do Paraíba &amp; Global</span>
+                <span>{t("about.badge")}</span>
               </div>
 
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl mb-6 text-[var(--text-primary)]">
-                A Engenharia de Software Feita para Durar.
+                {t("about.title")}
               </h1>
 
               <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mb-8 leading-relaxed">
-                Nascemos para preencher uma lacuna crônica de mercado: empresas que precisam de tecnologia séria, mas não querem lidar com burocracias impessoais nem com ferramentas frágeis e amadoras.
+                {t("about.subtitle")}
               </p>
             </div>
           </div>
@@ -41,20 +40,14 @@ export default function SobrePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6 text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">
                 <span className="text-xs uppercase font-mono tracking-widest text-[var(--accent)] font-semibold block">
-                  Nossa Proposta de Valor
+                  {t("about.badge")}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
-                  Engenharia com Proximidade: Rigor Técnico e Atendimento Executivo
+                  {t("about.propTitle")}
                 </h2>
-                <p>
-                  A <strong>G. Morais Marcondes Soluções em Tecnologia da Informação LTDA</strong> atua como uma consultoria especializada em engenharia de software e desenvolvimento de soluções digitais. Isso significa que não temos dezenas de intermediários, gerentes de conta que não entendem de código ou suporte terceirizado em outro estado.
-                </p>
-                <p>
-                  Aqui, cada linha de código, cada modelo de banco de dados e cada arquitetura de integração é pensada e validada diretamente por quem tem formação sólida em engenharia.
-                </p>
-                <p>
-                  Entregamos aos nossos parceiros o mesmo nível de robustez técnica exigido por grandes empresas de tecnologia, mas com a agilidade, transparência e proximidade que os negócios modernos demandam.
-                </p>
+                <p>{t("about.propP1")}</p>
+                <p>{t("about.propP2")}</p>
+                <p>{t("about.propP3")}</p>
               </div>
 
               <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -64,10 +57,10 @@ export default function SobrePage() {
                       <GraduationCap size={20} />
                     </div>
                     <strong className="block text-base font-bold text-[var(--text-primary)] mb-2">
-                      Rigor da Engenharia
+                      {t("about.card1Title")}
                     </strong>
                     <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      Projetos estruturados com bases matemáticas, testes e modelagem de arquitetura formal, garantindo que o sistema suporte o crescimento do negócio.
+                      {t("about.card1Desc")}
                     </p>
                   </div>
                 </div>
@@ -78,10 +71,10 @@ export default function SobrePage() {
                       <ShieldCheck size={20} />
                     </div>
                     <strong className="block text-base font-bold text-[var(--text-primary)] mb-2">
-                      Segurança &amp; LGPD
+                      {t("about.card2Title")}
                     </strong>
                     <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      Ambientes com isolamento lógico de banco de dados, criptografia e conformidade estrita com a legislação brasileira de proteção de dados.
+                      {t("about.card2Desc")}
                     </p>
                   </div>
                 </div>
@@ -92,10 +85,10 @@ export default function SobrePage() {
                       <Code2 size={20} />
                     </div>
                     <strong className="block text-base font-bold text-[var(--text-primary)] mb-2">
-                      Código Proprietário
+                      {t("about.card3Title")}
                     </strong>
                     <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      Em nossos projetos sob medida, o código e os dados pertencem integralmente à sua empresa, sem aprisionamento tecnológico em plataformas obscuras.
+                      {t("about.card3Desc")}
                     </p>
                   </div>
                 </div>
@@ -106,10 +99,10 @@ export default function SobrePage() {
                       <HeartHandshake size={20} />
                     </div>
                     <strong className="block text-base font-bold text-[var(--text-primary)] mb-2">
-                      Atendimento Direto
+                      {t("about.card4Title")}
                     </strong>
                     <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      Comunicação de fundador para fundador. Suporte ágil e reuniões consultivas com quem realmente programa e sustenta o seu sistema.
+                      {t("about.card4Desc")}
                     </p>
                   </div>
                 </div>
@@ -125,24 +118,20 @@ export default function SobrePage() {
               <div className="max-w-3xl">
                 <div className="badge-boutique mb-4">
                   <Award size={14} />
-                  <span>Direção Técnica &amp; Fundador</span>
+                  <span>{t("leadership.badge")}</span>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-                  Gabriel Morais Marcondes
+                  {t("leadership.name")}
                 </h2>
 
                 <p className="text-[var(--accent)] font-medium text-sm md:text-base mb-6 font-mono">
-                  Engenheiro de Controle e Automação (UNIFEI) · Engenheiro de Software
+                  {t("leadership.role")}
                 </p>
 
                 <div className="text-[var(--text-secondary)] text-sm md:text-base space-y-4 mb-8 leading-relaxed">
-                  <p>
-                    Formado pela renomada <strong>Universidade Federal de Itajubá (UNIFEI)</strong>, Gabriel traz a precisão analítica e o pensamento sistêmico da automação industrial para o desenvolvimento de software corporativo.
-                  </p>
-                  <p>
-                    Com anos de experiência construindo aplicativos móveis em Flutter, plataformas de alta escala em Next.js e backends resilientes conectados a gateways bancários e APIs corporativas, ele lidera cada projeto da G. Marcondes com foco em solidez e longevidade.
-                  </p>
+                  <p>{t("leadership.p1")}</p>
+                  <p>{t("leadership.p2")}</p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4">
@@ -152,7 +141,7 @@ export default function SobrePage() {
                     rel="noreferrer"
                     className="btn-primary text-xs uppercase tracking-wider"
                   >
-                    <span>Acessar Portfólio Pessoal Técnico (Gabriel Morais)</span>
+                    <span>{t("leadership.portfolioBtn")}</span>
                     <ExternalLink size={15} />
                   </a>
 
@@ -162,7 +151,7 @@ export default function SobrePage() {
                     rel="noreferrer"
                     className="btn-secondary text-xs uppercase tracking-wider"
                   >
-                    <span>Perfil no LinkedIn</span>
+                    <span>{t("leadership.linkedinBtn")}</span>
                   </a>
                 </div>
               </div>
@@ -170,17 +159,17 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 text-center">
-          <div className="container-custom max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Vamos Conversar Sobre o Futuro Digital do seu Negócio?
+        {/* Chamada Final para Contato */}
+        <section className="py-20 border-t border-[var(--border-subtle)] text-center">
+          <div className="container-custom max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight mb-4 text-[var(--text-primary)]">
+              {t("contact.title")}
             </h2>
-            <p className="text-[var(--text-secondary)] mb-8">
-              Atendemos presencialmente no Vale do Paraíba e com suporte remoto estruturado para clientes no Brasil e no exterior.
+            <p className="text-[var(--text-secondary)] text-base mb-8">
+              {t("contact.subtitle")}
             </p>
             <Link href="/contato" className="btn-primary text-base">
-              <span>Falar com Nossa Equipe</span>
+              <span>{t("nav.contact")}</span>
               <ArrowRight size={18} />
             </Link>
           </div>
