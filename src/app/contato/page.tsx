@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MessageSquare, Mail, MapPin, Send, Clock, ShieldCheck } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Contato & Solicitação de Proposta | G. Marcondes Soluções em TI",
-  description: "Solicite um diagnóstico técnico ou proposta comercial para sua empresa. Atendimento direto via WhatsApp corporativo e formulário institucional em Taubaté/SP.",
-};
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function ContatoPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col bg-[#0F1E36] text-[#F4EFEA]">
       <Navbar />
@@ -19,13 +18,13 @@ export default function ContatoPage() {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-xs uppercase font-mono tracking-widest text-[var(--accent)] font-semibold block mb-3">
-                Canais de Atendimento
+                {t("contactPage.badge")}
               </span>
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl mb-4 text-[var(--text-primary)]">
-                Fale com a Nossa Engenharia.
+                {t("contactPage.title")}
               </h1>
               <p className="text-base md:text-lg text-[var(--text-secondary)]">
-                Conte-nos sobre o desafio técnico ou operacional do seu negócio. Retornamos com uma avaliação clara de viabilidade, prazos e investimentos.
+                {t("contactPage.subtitle")}
               </p>
             </div>
           </div>
@@ -39,10 +38,10 @@ export default function ContatoPage() {
               <div className="lg:col-span-5 space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-3 text-[var(--text-primary)]">
-                    Atendimento Executivo Direto
+                    {t("contactPage.directTitle")}
                   </h2>
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    Você falará diretamente com quem lidera a concepção técnica e a entrega das soluções. Sem robôs impessoais de triagem na primeira conversa.
+                    {t("contactPage.directDesc")}
                   </p>
                 </div>
 
@@ -52,12 +51,14 @@ export default function ContatoPage() {
                       <MapPin size={18} />
                     </div>
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Sede Operacional</strong>
+                      <strong className="block text-[var(--text-primary)]">
+                        {t("contactPage.hq")}
+                      </strong>
                       <span className="text-xs text-[var(--text-secondary)]">
                         Taubaté - SP, Brasil
                       </span>
                       <p className="text-[11px] text-[var(--text-muted)] mt-1">
-                        Atendimento presencial no Vale do Paraíba (Taubaté, Pindamonhangaba, São José dos Campos) e remoto global.
+                        {t("contactPage.hqDesc")}
                       </p>
                     </div>
                   </div>
@@ -67,7 +68,9 @@ export default function ContatoPage() {
                       <MessageSquare size={18} />
                     </div>
                     <div>
-                      <strong className="block text-[var(--text-primary)]">WhatsApp Comercial</strong>
+                      <strong className="block text-[var(--text-primary)]">
+                        {t("contactPage.whatsapp")}
+                      </strong>
                       <a
                         href="https://wa.me/5512988921999"
                         target="_blank"
@@ -77,7 +80,7 @@ export default function ContatoPage() {
                         +55 (12) 98892-1999
                       </a>
                       <p className="text-[11px] text-[var(--text-muted)] mt-1">
-                        Canal ágil para dúvidas comerciais e alinhamentos de escopo.
+                        {t("contactPage.whatsappDesc")}
                       </p>
                     </div>
                   </div>
@@ -87,7 +90,9 @@ export default function ContatoPage() {
                       <Mail size={18} />
                     </div>
                     <div>
-                      <strong className="block text-[var(--text-primary)]">E-mail Corporativo</strong>
+                      <strong className="block text-[var(--text-primary)]">
+                        {t("contactPage.email")}
+                      </strong>
                       <a
                         href="mailto:contato@gmarcondes.tech"
                         className="text-xs text-[var(--accent)] hover:underline font-mono"
@@ -95,7 +100,7 @@ export default function ContatoPage() {
                         contato@gmarcondes.tech
                       </a>
                       <p className="text-[11px] text-[var(--text-muted)] mt-1">
-                        Para envio de RFPs, minutas de briefing e documentos formais.
+                        {t("contactPage.emailDesc")}
                       </p>
                     </div>
                   </div>
@@ -105,9 +110,11 @@ export default function ContatoPage() {
                       <Clock size={18} />
                     </div>
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Horário de Operação</strong>
+                      <strong className="block text-[var(--text-primary)]">
+                        {t("contactPage.hours")}
+                      </strong>
                       <span className="text-xs text-[var(--text-secondary)]">
-                        Segunda a Sexta-feira, das 09h00 às 18h00
+                        {t("contactPage.hoursDesc")}
                       </span>
                     </div>
                   </div>
@@ -115,7 +122,7 @@ export default function ContatoPage() {
 
                 <div className="p-4 rounded-xl bg-[#14243f]/60 border border-[var(--border-strong)] flex items-center gap-3 text-xs text-[var(--text-secondary)]">
                   <ShieldCheck size={20} className="text-[var(--accent)] shrink-0" />
-                  <span>Seus dados são confidenciais e protegidos nos termos da LGPD.</span>
+                  <span>{t("contactPage.privacy")}</span>
                 </div>
               </div>
 
@@ -123,10 +130,10 @@ export default function ContatoPage() {
               <div className="lg:col-span-7">
                 <div className="card-boutique p-8 md:p-10">
                   <h3 className="text-2xl font-bold mb-2 text-[var(--text-primary)]">
-                    Solicitar Proposta ou Diagnóstico Técnico
+                    {t("contactPage.formTitle")}
                   </h3>
                   <p className="text-xs text-[var(--text-muted)] mb-8">
-                    Preencha as informações para agendarmos uma conversa de alinhamento com a nossa equipe.
+                    {t("contactPage.formSubtitle")}
                   </p>
 
                   <form
@@ -138,26 +145,26 @@ export default function ContatoPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                          Seu Nome Completo
+                          {t("contactPage.name")} *
                         </label>
                         <input
                           type="text"
                           name="name"
                           required
-                          placeholder="Ex: Carlos Silva"
+                          placeholder="Gabriel Marcondes"
                           className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)]"
                         />
                       </div>
 
                       <div>
                         <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                          Empresa &amp; Cidade
+                          {t("contactPage.company")} *
                         </label>
                         <input
                           type="text"
                           name="company"
                           required
-                          placeholder="Ex: Clínica Alpha / Taubaté"
+                          placeholder="Company / Location"
                           className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)]"
                         />
                       </div>
@@ -166,26 +173,25 @@ export default function ContatoPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                          E-mail Corporativo
+                          {t("contactPage.emailLabel")} *
                         </label>
                         <input
                           type="email"
                           name="email"
                           required
-                          placeholder="carlos@empresa.com.br"
+                          placeholder="corporate@company.com"
                           className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)]"
                         />
                       </div>
 
                       <div>
                         <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                          WhatsApp / Telefone
+                          {t("contactPage.phone")}
                         </label>
                         <input
                           type="tel"
                           name="phone"
-                          required
-                          placeholder="(12) 99999-9999"
+                          placeholder="+1 (555) 000-0000"
                           className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)]"
                         />
                       </div>
@@ -193,29 +199,29 @@ export default function ContatoPage() {
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                        Solução ou Projeto de Interesse
+                        {t("contactPage.interest")}
                       </label>
                       <select
                         name="interest"
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)]"
                       >
-                        <option value="BarberSpace">BarberSpace (Plataforma para Barbearias e Estética)</option>
-                        <option value="Agentes de IA">Agentes de IA no WhatsApp (API Oficial da Meta)</option>
-                        <option value="Sistemas Sob Medida">Desenvolvimento de App Mobile (Flutter) ou Sistema Web</option>
-                        <option value="Integracao de APIs">Integração de APIs Corporativas (Ponto+, ERPs, Bancos)</option>
-                        <option value="Consultoria Geral">Diagnóstico Geral de Tecnologia &amp; Arquitetura</option>
+                        <option value="Enterprise Systems">{t("contactPage.interestOpt3")}</option>
+                        <option value="BarberSpace">{t("contactPage.interestOpt1")}</option>
+                        <option value="Agentes de IA">{t("contactPage.interestOpt2")}</option>
+                        <option value="Integracao de APIs">{t("contactPage.interestOpt4")}</option>
+                        <option value="Consultoria Geral">{t("contactPage.interestOpt5")}</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2 font-medium">
-                        Detalhes do Desafio / Requisitos Iniciais
+                        {t("contactPage.details")}
                       </label>
                       <textarea
                         rows={4}
                         name="message"
                         required
-                        placeholder="Descreva brevemente o que sua empresa busca construir, automatizar ou integrar..."
+                        placeholder={t("contactPage.detailsPlaceholder")}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--accent)] resize-none"
                       ></textarea>
                     </div>
@@ -225,7 +231,7 @@ export default function ContatoPage() {
                       className="btn-primary w-full justify-center text-sm py-3.5 mt-2"
                     >
                       <Send size={16} />
-                      <span>Encaminhar Solicitação pelo WhatsApp</span>
+                      <span>{t("contactPage.submit")}</span>
                     </button>
                   </form>
                 </div>

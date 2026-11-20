@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import {
@@ -18,14 +19,11 @@ import {
   Database
 } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Soluções Tecnológicas | BarberSpace, Agentes de IA e Sistemas · G. Marcondes",
-  description:
-    "Conheça o portfólio completo da G. Marcondes: SaaS BarberSpace, Agentes de IA no WhatsApp com API oficial da Meta e Sistemas Sob Medida com integração de APIs corporativas.",
-};
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function SolucoesPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col bg-[#0F1E36] text-[#F4EFEA]">
       <Navbar />
@@ -37,15 +35,15 @@ export default function SolucoesPage() {
             <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
               <div className="badge-boutique mb-6">
                 <Layers size={14} />
-                <span>Portfólio de Engenharia &amp; Produtos</span>
+                <span>{t("solPage.badge")}</span>
               </div>
 
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl mb-6 text-[var(--text-primary)]">
-                Soluções Tecnológicas para Eficiência, Escala &amp; Controle.
+                {t("solPage.title")}
               </h1>
 
               <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mb-8 leading-relaxed">
-                Combinamos produtos proprietários consolidados em produção com capacidade técnica para construir sistemas complexos e integrações de APIs corporativas.
+                {t("solPage.subtitle")}
               </p>
 
               {/* Barra de Navegação Rápida entre as Soluções */}
@@ -54,19 +52,19 @@ export default function SolucoesPage() {
                   href="#barberspace"
                   className="px-4 py-2 rounded-lg bg-[#14243f] border border-[var(--border-subtle)] text-xs md:text-sm font-medium hover:border-[var(--accent)] transition-colors"
                 >
-                  1. BarberSpace (SaaS)
+                  {t("solPage.tab1")}
                 </a>
                 <a
                   href="#agentes-ia"
                   className="px-4 py-2 rounded-lg bg-[#14243f] border border-[var(--border-subtle)] text-xs md:text-sm font-medium hover:border-[var(--accent)] transition-colors"
                 >
-                  2. Agentes de IA no WhatsApp
+                  {t("solPage.tab2")}
                 </a>
                 <a
                   href="#sistemas-integracoes"
                   className="px-4 py-2 rounded-lg bg-[#14243f] border border-[var(--border-subtle)] text-xs md:text-sm font-medium hover:border-[var(--accent)] transition-colors"
                 >
-                  3. Sistemas &amp; Integrações de APIs
+                  {t("solPage.tab3")}
                 </a>
               </div>
             </div>
@@ -82,47 +80,47 @@ export default function SolucoesPage() {
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#14243f] border border-[var(--border-strong)] text-[var(--accent)] text-xs font-mono font-semibold">
                   <Scissors size={14} />
-                  <span>SaaS MULTI-TENANT</span>
+                  <span>{t("solPage.barberTag")}</span>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)]">
-                  BarberSpace: Plataforma Completa de Gestão para Barbearias e Estética
+                  {t("solPage.barberTitle")}
                 </h2>
 
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Desenvolvido para eliminar o retrabalho operacional de comandas manuais e cálculos de repasse. Seu cliente agenda sozinho em segundos e você gerencia o caixa em tempo real.
+                  {t("solPage.barberDesc")}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-[var(--text-secondary)]">
                   <div className="flex items-start gap-2.5">
                     <CalendarCheck size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Agendamento sem App</strong>
-                      <span className="text-xs">Link direto e fluido pelo celular.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.barberF1Title")}</strong>
+                      <span className="text-xs">{t("solPage.barberF1Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <CreditCard size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Split de Pagamentos</strong>
-                      <span className="text-xs">Repasse automático de comissões via gateway.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.barberF2Title")}</strong>
+                      <span className="text-xs">{t("solPage.barberF2Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <ShieldCheck size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Clube de Assinaturas</strong>
-                      <span className="text-xs">Planos mensais com cobrança recorrente Asaas.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.barberF3Title")}</strong>
+                      <span className="text-xs">{t("solPage.barberF3Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Lembretes Anti-Falta</strong>
-                      <span className="text-xs">Confirmação automática de horários no WhatsApp.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.barberF4Title")}</strong>
+                      <span className="text-xs">{t("solPage.barberF4Desc")}</span>
                     </div>
                   </div>
                 </div>
@@ -134,7 +132,7 @@ export default function SolucoesPage() {
                     rel="noreferrer"
                     className="btn-primary text-xs uppercase tracking-wider"
                   >
-                    <span>Agendar Demonstração do BarberSpace</span>
+                    <span>{t("solPage.barberCta")}</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>
@@ -143,20 +141,20 @@ export default function SolucoesPage() {
               <div className="lg:col-span-6">
                 <div className="card-boutique p-8 bg-[#0b1629]">
                   <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4">
-                    Como o BarberSpace Resolve o Caixa da Barbearia
+                    {t("solPage.barberBoxTitle")}
                   </h3>
                   <div className="space-y-4 text-xs md:text-sm">
                     <div className="p-4 rounded-xl bg-[#0F1E36] border border-red-500/20">
-                      <strong className="block text-red-400 mb-1">Rotina Tradicional (Fricção e Erros):</strong>
+                      <strong className="block text-red-400 mb-1">{t("solPage.barberBoxBadTitle")}</strong>
                       <p className="text-[var(--text-muted)]">
-                        Horas no domingo calculando porcentagem de cada barbeiro na calculadora, comandas rasuradas e dinheiro misturado na mesma conta sem clareza contábil.
+                        {t("solPage.barberBoxBadDesc")}
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-[#14243f] border border-[var(--accent)]/40">
-                      <strong className="block text-[var(--accent)] mb-1">Com o BarberSpace (Engenharia Financeira):</strong>
+                      <strong className="block text-[var(--accent)] mb-1">{t("solPage.barberBoxGoodTitle")}</strong>
                       <p className="text-[var(--text-secondary)]">
-                        No exato momento em que o cliente paga, a comissão do profissional vai para a conta dele e a taxa da casa fica na sua conta jurídica. Zero atrito e zero bitributação.
+                        {t("solPage.barberBoxGoodDesc")}
                       </p>
                     </div>
                   </div>
@@ -176,20 +174,20 @@ export default function SolucoesPage() {
                 <div className="p-8 rounded-2xl bg-[#0F1E36] border border-[var(--border-strong)] shadow-xl">
                   <h4 className="text-lg font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
                     <Clock size={18} className="text-[var(--accent)]" />
-                    <span>Exemplo de Conversão Fora do Horário Comercial</span>
+                    <span>{t("solPage.aiDemoTitle")}</span>
                   </h4>
                   <div className="space-y-4 text-xs md:text-sm">
                     <div className="p-4 rounded-xl bg-[#0b1629] border border-[var(--border-subtle)] text-right">
-                      <span className="text-[10px] text-[var(--text-muted)] block mb-1">Paciente · Domingo 23h45</span>
+                      <span className="text-[10px] text-[var(--text-muted)] block mb-1">{t("solPage.aiDemoPatient")}</span>
                       <p className="text-[var(--text-primary)]">
-                        &quot;Boa noite! Vocês atendem Unimed para consulta dermatológica particular ou exame?&quot;
+                        {t("solPage.aiDemoQ")}
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-[#14243f] border border-[var(--accent)]/30 text-left">
-                      <span className="text-[10px] text-[var(--accent)] font-mono block mb-1">Agente de IA Oficial · 23h45</span>
+                      <span className="text-[10px] text-[var(--accent)] font-mono block mb-1">{t("solPage.aiDemoAgent")}</span>
                       <p className="text-[var(--text-secondary)]">
-                        &quot;Olá! Boa noite. Atendemos sim consultas pelo plano Unimed. Para atendimento particular com a médica especialista, o investimento é de R$ 350 com retorno em 21 dias. Gostaria de ver os horários para esta semana?&quot;
+                        {t("solPage.aiDemoA")}
                       </p>
                     </div>
                   </div>
@@ -199,33 +197,33 @@ export default function SolucoesPage() {
               <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#14243f] border border-[var(--border-strong)] text-[var(--accent)] text-xs font-mono font-semibold">
                   <Bot size={14} />
-                  <span>AUTOMAÇÃO INTELIGENTE &amp; META API</span>
+                  <span>{t("solPage.aiTag")}</span>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)]">
-                  Agentes de IA no WhatsApp: Atendimento Oficial 24/7 sem Risco de Bloqueio
+                  {t("solPage.aiTitle")}
                 </h2>
 
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Mais de 40% dos clientes buscam atendimento à noite e nos fins de semana. Implementamos agentes inteligentes conectados exclusivamente à API Oficial da Meta (Cloud API), com o seu DDD local (12 ou da sua cidade).
+                  {t("solPage.aiDesc")}
                 </p>
 
                 <div className="space-y-3 text-sm text-[var(--text-secondary)]">
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[var(--accent)]" />
-                    <span>Conexão oficial homologada pela Meta: zero risco de banimento de chip</span>
+                    <CheckCircle2 size={16} className="text-[var(--accent)] shrink-0" />
+                    <span>{t("solPage.aiF1")}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[var(--accent)]" />
-                    <span>Compreensão de áudios, textos e linguagem natural humanizada</span>
+                    <CheckCircle2 size={16} className="text-[var(--accent)] shrink-0" />
+                    <span>{t("solPage.aiF2")}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[var(--accent)]" />
-                    <span>Triagem de clientes, respostas a dúvidas de procedimentos e agendamento</span>
+                    <CheckCircle2 size={16} className="text-[var(--accent)] shrink-0" />
+                    <span>{t("solPage.aiF3")}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 size={16} className="text-[var(--accent)]" />
-                    <span>Servidores dedicados com Docker e conformidade estrita com a LGPD</span>
+                    <CheckCircle2 size={16} className="text-[var(--accent)] shrink-0" />
+                    <span>{t("solPage.aiF4")}</span>
                   </div>
                 </div>
 
@@ -236,7 +234,7 @@ export default function SolucoesPage() {
                     rel="noreferrer"
                     className="btn-primary text-xs uppercase tracking-wider"
                   >
-                    <span>Implantar Agente de IA</span>
+                    <span>{t("solPage.aiCta")}</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>
@@ -254,47 +252,47 @@ export default function SolucoesPage() {
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#14243f] border border-[var(--border-strong)] text-[var(--accent)] text-xs font-mono font-semibold">
                   <Layers size={14} />
-                  <span>DESENVOLVIMENTO &amp; INTEGRAÇÕES</span>
+                  <span>{t("solPage.customTag")}</span>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)]">
-                  Sistemas Sob Medida &amp; Integrações Robustas de APIs
+                  {t("solPage.customTitle")}
                 </h2>
 
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Construímos softwares corporativos que resolvem gargalos operacionais específicos: aplicativos mobile nativos em Flutter, painéis administrativos escaláveis em Next.js e conexões entre sistemas que hoje operam isolados.
+                  {t("solPage.customDesc")}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-[var(--text-secondary)]">
                   <div className="flex items-start gap-2.5">
-                    <Smartphone size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
+                    <Cpu size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Mobile em Flutter</strong>
-                      <span className="text-xs">Apps iOS/Android com suporte offline-first.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.customF1Title")}</strong>
+                      <span className="text-xs">{t("solPage.customF1Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <Globe size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Plataformas Web Next.js</strong>
-                      <span className="text-xs">Portais de clientes e dashboards corporativos.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.customF2Title")}</strong>
+                      <span className="text-xs">{t("solPage.customF2Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
-                    <Network size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
+                    <Smartphone size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Integração de APIs (Ponto+)</strong>
-                      <span className="text-xs">Sincronização de ponto, ERPs e sistemas legados.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.customF3Title")}</strong>
+                      <span className="text-xs">{t("solPage.customF3Desc")}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <Database size={18} className="text-[var(--accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--text-primary)]">Bancos &amp; Infraestrutura</strong>
-                      <span className="text-xs">PostgreSQL, microsserviços e Docker.</span>
+                      <strong className="block text-[var(--text-primary)]">{t("solPage.customF4Title")}</strong>
+                      <span className="text-xs">{t("solPage.customF4Desc")}</span>
                     </div>
                   </div>
                 </div>
@@ -304,7 +302,7 @@ export default function SolucoesPage() {
                     href="/contato"
                     className="btn-primary text-xs uppercase tracking-wider"
                   >
-                    <span>Solicitar Briefing de Projeto</span>
+                    <span>{t("solPage.customCta")}</span>
                     <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -314,27 +312,27 @@ export default function SolucoesPage() {
                 <div className="card-boutique p-8 bg-[#0b1629]">
                   <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
                     <Cpu size={18} className="text-[var(--accent)]" />
-                    <span>Exemplos de Ecossistemas Integrados</span>
+                    <span>{t("solPage.customBoxTitle")}</span>
                   </h3>
                   <div className="space-y-4 text-xs md:text-sm">
                     <div className="p-4 rounded-xl bg-[#0F1E36] border border-[var(--border-subtle)]">
-                      <strong className="block text-[var(--accent)] mb-1">Ponto Eletrônico &amp; RH (API Ponto+)</strong>
+                      <strong className="block text-[var(--accent)] mb-1">{t("solPage.customEx1Title")}</strong>
                       <p className="text-[var(--text-secondary)]">
-                        Automatização de coleta de batidas e validação de jornadas diretamente com o sistema central da empresa.
+                        {t("solPage.customEx1Desc")}
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-[#0F1E36] border border-[var(--border-subtle)]">
-                      <strong className="block text-[var(--accent)] mb-1">Gateways Financeiros &amp; Bancos (Asaas / Pagar.me)</strong>
+                      <strong className="block text-[var(--accent)] mb-1">{t("solPage.customEx2Title")}</strong>
                       <p className="text-[var(--text-secondary)]">
-                        Conciliação automática via Webhook, emissão de cobranças e repasses com segurança transacional.
+                        {t("solPage.customEx2Desc")}
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-[#0F1E36] border border-[var(--border-subtle)]">
-                      <strong className="block text-[var(--accent)] mb-1">Meta Cloud API (WhatsApp Corporativo)</strong>
+                      <strong className="block text-[var(--accent)] mb-1">{t("solPage.customEx3Title")}</strong>
                       <p className="text-[var(--text-secondary)]">
-                        Alertas automáticos, confirmações de agendamento e notificações transacionais disparadas por eventos do banco de dados.
+                        {t("solPage.customEx3Desc")}
                       </p>
                     </div>
                   </div>
@@ -348,13 +346,13 @@ export default function SolucoesPage() {
         <section className="py-20 text-center border-t border-[var(--border-subtle)] bg-[#0b1629]/40">
           <div className="container-custom max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Precisa de Tecnologia Sólida para o seu Negócio?
+              {t("solPage.ctaBottomTitle")}
             </h2>
             <p className="text-[var(--text-secondary)] mb-8">
-              Atendimento presencial no Vale do Paraíba e consultoria remota estruturada para empresas de todo o país.
+              {t("solPage.ctaBottomSubtitle")}
             </p>
             <Link href="/contato" className="btn-primary text-base">
-              <span>Falar com Nossa Equipe de Engenharia</span>
+              <span>{t("solPage.ctaBottomBtn")}</span>
               <ArrowRight size={18} />
             </Link>
           </div>
