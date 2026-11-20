@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gmarcondes.tech"),
@@ -43,7 +44,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <FloatingWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );
