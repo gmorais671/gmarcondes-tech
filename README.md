@@ -5,6 +5,7 @@ Website institucional da **G. Morais Marcondes Soluções em Tecnologia da Infor
 - **URL Oficial:** [https://gmarcondes.tech](https://gmarcondes.tech)
 - **Instagram:** [@gmarcondes.tech](https://instagram.com/gmarcondes.tech)
 - **Tech Stack:** Next.js 16 (App Router + Turbopack), React 19, Tailwind CSS v4, TypeScript.
+- **i18n:** Suporte bilíngue nativo (Português / Inglês) com auto-detecção de localidade.
 
 ## 🚀 Como Executar Localmente
 
